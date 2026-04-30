@@ -311,7 +311,6 @@ export default function ResumeBuilder() {
           scale: 2, // High resolution
           useCORS: true,
           windowWidth: 800,
-          window: iframe.contentWindow || undefined,
         });
 
         // 2. Create the PDF
