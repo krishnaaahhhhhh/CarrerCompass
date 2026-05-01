@@ -7,6 +7,7 @@ import {
   BarChart3,
   BookOpenText,
   BrainCircuit,
+  Check,
   ChevronLeft,
   ChevronRight,
   Globe,
@@ -1399,7 +1400,7 @@ export default function SkillTest() {
                       >
                         <div className={styles.optionTopRow}>
                           <span className={styles.optionLabel}>{option.label}</span>
-                          <span className={styles.optionScore}>{Math.round(option.score * 100)}% {t.fit}</span>
+                          {isSelected && <Check size={18} className={styles.checkIcon} />}
                         </div>
                         <p>{getOptionText(currentQuestion, currentQuestion.options.indexOf(option))}</p>
                       </button>
@@ -1423,22 +1424,19 @@ export default function SkillTest() {
                 </div>
 
                 <div className={styles.questionControls}>
-                  <button type="button" className={styles.secondaryButton} onClick={handlePrevious} disabled={activeIndex === 0}>
-                    <ChevronLeft size={16} />
-                    {t.back}
-                  </button>
-
-                  <div className={styles.controlHint}>
-                    <span>{t.benchmarkAnswer}</span>
-                    <strong>
-                      {currentBestOption.label} - {getOptionText(currentQuestion, currentQuestion.options.indexOf(currentBestOption))}
-                    </strong>
+                  <div className={styles.controlLeft}>
+                    <button type="button" className={styles.secondaryButton} onClick={handlePrevious} disabled={activeIndex === 0}>
+                      <ChevronLeft size={16} />
+                      {t.back}
+                    </button>
                   </div>
 
                   <button type="button" className={styles.primaryButton} onClick={handleNext}>
                     {activeIndex === questions.length - 1 ? t.finishAssessment : t.nextQuestion}
                     <ChevronRight size={16} />
                   </button>
+
+                  <div className={styles.controlRight} />
                 </div>
               </article>
             </div>

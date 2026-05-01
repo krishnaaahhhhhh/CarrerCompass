@@ -8,15 +8,16 @@ export async function POST(req: Request) {
     const { name, email, phone, query } = await req.json();
 
     if (!TOKEN) {
-      console.error("MAILTRAP_TOKEN is missing in environment variables.");
-      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+      console.error("MAILTRAP_TOKEN is missing in environment variables. Current env:", process.env);
+      return NextResponse.json({ error: "Server configuration error: MAILTRAP_TOKEN missing" }, { status: 500 });
     }
+    console.log("MAILTRAP_TOKEN found, length:", TOKEN.length);
 
     const client = new MailtrapClient({ token: TOKEN });
 
     const sender = {
-      email: process.env.MAILTRAP_SENDER_EMAIL || "hello@demomailtrap.com",
-      name: "CareerCompass Contact Form",
+      email: "hello@demomailtrap.co",
+      name: "CareerCompass",
     };
 
     const recipients = [
@@ -42,7 +43,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Mailtrap error:", error);
+    console.error("Mailtrap error detail:", JSON.stringify(error, null, 2));
+    console.error("Mailtrap error message:", error.message);
     return NextResponse.json({ error: error.message || "Failed to send email" }, { status: 500 });
   }
 }
