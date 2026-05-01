@@ -22,17 +22,29 @@ export default function Feedback() {
       query: formData.get("query"),
     };
 
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS Keys are missing!", { serviceId, templateId, publicKey });
+      setStatus("error");
+      setErrorMsg("Email configuration is missing. Please check your .env.local");
+      return;
+    }
+
     try {
+      emailjs.init(publicKey);
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        serviceId,
+        templateId,
         {
           name: data.name,
           email: data.email,
           phone: data.phone,
           message: data.query,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+          title: data.query, // Mapping query to title as well since the template uses {{title}}
+        }
       );
 
       if (result.status !== 200) {
