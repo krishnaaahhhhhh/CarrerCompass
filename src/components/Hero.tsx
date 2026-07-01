@@ -53,15 +53,17 @@ export default function Hero() {
       >
         <div className={styles.videoLabel}>Tutorial Video!</div>
         <div className={styles.iframeWrapper}>
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/TGapm_D8UGY?autoplay=0&controls=1&showinfo=0&rel=0" 
-            title="Career Compass Intro" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-          ></iframe>
+          <video
+            width="100%"
+            height="100%"
+            controls
+            playsInline
+            preload="metadata"
+            poster="/screen-recording.png"
+          >
+            <source src="/screen-recording.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </motion.div>
       
