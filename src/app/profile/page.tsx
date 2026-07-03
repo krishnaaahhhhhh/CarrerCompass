@@ -8,6 +8,7 @@ import { ArrowLeft, Activity, Clock, Zap, Star, FileText, Map, Link2, User, Chec
 import Link from "next/link";
 import styles from "./profile.module.css";
 import { getActivity, clearActivity, relativeTime, ActivityEvent } from "@/lib/activity";
+import AcademicPortal from "@/components/StudentCard/AcademicPortal";
 
 // Icon map
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -95,6 +96,11 @@ export default function ProfilePage() {
                 <div className={styles.statBadge}><Activity size={14} className={styles.statIcon} /> {activities.length} Actions</div>
               </div>
             </div>
+          </motion.div>
+
+          {/* ── Academic Portal ── */}
+          <motion.div variants={itemVariants}>
+            <AcademicPortal />
           </motion.div>
 
           {/* ── Activity Feed ── */}
