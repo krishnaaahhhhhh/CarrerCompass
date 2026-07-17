@@ -1,5 +1,17 @@
 # CarrerCompass
 
+## Team Details
+- Team Lead: Aditya Yadav
+- Team Name: Merge Conflicts
+- Project Name: Career Compass
+- Track Name: Open Innovation - EdTech
+
+- Members:
+  - Gaurika - Frontend and UI/UX
+  - Divyanshi - Research and Documentation
+  - Krishna - Backend and API
+  - Aditya - Backend and API
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
