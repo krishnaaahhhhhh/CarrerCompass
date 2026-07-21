@@ -1,6 +1,29 @@
 # CarrerCompass
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Team Details
+
+- Team Lead: Aditya Yadav
+  - Contact: 7068731914, yadi.tya5224@gmail.com
+  - Role: Backend Development
+
+- Team Name: Merge Conflicts
+- Project Name: Career Compass
+- Track Name: Open Innovation - EdTech
+
+- Team Members:
+  - Gaurika Pandey
+    - Contact: 9695398118, gaurikapandey6457@gmail.com
+    - Role: Frontend and UI/UX
+
+  - Divyanshi Gupta
+    - Contact: 6386323335, guptadivyanshi107@gmail.com
+    - Role: Research and Documentation
+
+  - Krishna Rathore
+    - Contact: 6307000283, krishnasinghrathour9628@gmail.com
+    - Role: Backend and API
+
+
 
 ## Getting Started
 
